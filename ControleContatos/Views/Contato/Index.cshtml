@@ -1,0 +1,71 @@
+﻿@{
+    ViewData["Title"] = "Listagem de contatos";
+}
+<div class="text-center">
+
+    <div class="d-grid gap-2  d-md-flex justify-content-md-start">
+        <a class=" btn btn-primary" role="button" asp-controller="Contato" asp-action="Create">Adicionar novo contato</a>
+    </div>
+
+    <br>
+    <br />  
+    <h1 class="display-4">Listagem de contatos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nome</th>
+                <th scope="col">Email</th>
+                <th scope="col">Celular</th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            <tr>
+                <th scope="row">1</th>
+                <td>João</td>
+                <td>maria@gmail.com</td>
+                <td>(11)99775522</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="buut" class="btn btn-primary">Editar</a>
+                        <a role="button" class="btn btn-danger">Apagar</a>
+
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <th scope="row">2</th>
+                <td>Alex</td>
+                <td>jallexz@msn.com</td>
+                <td>(14)99885566</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="buut" class="btn btn-primary">Editar</a>
+                        <a role="button" class="btn btn-danger">Apagar</a>
+
+                    </div>
+                </td>
+            </tr>
+
+
+            <tr>
+                <th scope="row">3</th>
+                <td>Pedro</td>
+                <td>pedrodbarros@gmail.com</td>
+                <td>(14)99885566</td>
+                <td>
+                    <div class="btn-group" role="group">
+                        <a role="buut" class="btn btn-primary">Editar</a>
+                        <a role="button" class="btn btn-danger">Apagar</a>
+
+                    </div>
+                </td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</div>
+
