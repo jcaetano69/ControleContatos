@@ -1,3 +1,4 @@
+using ControleContatos.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +25,8 @@ namespace ControleContatos
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            services.AddEntityFrameworkSqlServer()// aqui estou setando que vou usar o sql server
+                .AddDbContext<BancoContext>();//e o contexto que vai mandar é esse aqui aonde vai conter todas as tabelas
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
