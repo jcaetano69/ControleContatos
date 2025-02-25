@@ -20,9 +20,16 @@ namespace ControleContatos.Repository
             //gravar no banco de dados
         }
 
+        public ContatoModel ListarPorId(int id)
+        {
+            return _bancoContext.Contatos.FirstOrDefault(x => x.Id == id);
+        }
+
         public List<ContatoModel> BuscarTodos()
         {
             return _bancoContext.Contatos.ToList();
         }
+
+        
     }
 }
