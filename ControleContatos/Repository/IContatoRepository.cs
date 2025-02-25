@@ -9,5 +9,6 @@ namespace ControleContatos.Repository
         List<ContatoModel> BuscarTodos();
 
         ContatoModel Adicionar(ContatoModel contato); //contrato adicionar que recebe como parametro um objeto contato e vai retornar o mesmo
+        ContatoModel Atualizar(ContatoModel contato);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ControleContatos.Data;
 using ControleContatos.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -30,6 +31,20 @@ namespace ControleContatos.Repository
             return _bancoContext.Contatos.ToList();
         }
 
-        
+        public ContatoModel Atualizar(ContatoModel contato) //atualizando os dados no banco de dados com as informações da model
+        {
+            ContatoModel contatoDb = ListarPorId(contato.Id);
+
+            if (contatoDb == null) throw new Exception("Houve um erro na atualização do contato");
+
+            contatoDb.Nome = contato.Nome;
+            contatoDb.Email = contato.Email;
+            contatoDb.Celular = contato.Celular;
+
+            _bancoContext.Contatos.Update(contatoDb);
+            _bancoContext.SaveChanges();
+
+            return contatoDb;
+        }
     }
 }
