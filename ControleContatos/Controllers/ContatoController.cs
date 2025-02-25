@@ -1,6 +1,7 @@
 ﻿using ControleContatos.Models;
 using ControleContatos.Repository;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
 
 namespace ControleContatos.Controllers
 {
@@ -13,7 +14,8 @@ namespace ControleContatos.Controllers
         }
         public IActionResult Index()
         {
-            return View();
+            List<ContatoModel> contatos = _contatoRepository.BuscarTodos();
+            return View(contatos);
         }
 
         public IActionResult Create()
@@ -30,6 +32,7 @@ namespace ControleContatos.Controllers
         {
             return View();
         }
+
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
         {

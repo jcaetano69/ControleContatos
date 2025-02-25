@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<ContatoModel>
+@{
     ViewData["Title"] = "Listagem de contatos";
 }
 <div class="text-center">
@@ -21,50 +22,26 @@
                 <th scope="col"></th>
             </tr>
         </thead>
-        <tbody class="table-group-divider">
-            <tr>
-                <th scope="row">1</th>
-                <td>João</td>
-                <td>maria@gmail.com</td>
-                <td>(11)99775522</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="buut" class="btn btn-primary" asp-controller="Contato" asp-action="Edit">Editar</a>
-                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="DeleteConfirm">Apagar</a>
+        <tbody>
+            @if(Model != null && Model.Any())
+            {
+                foreach (ContatoModel contato in Model)
+                {
+                    <tr>
+                        <th scope="row">@contato.Id</th>
+                        <td>@contato.Nome</td>
+                        <td>@contato.Email</td>
+                        <td>@contato.Celular</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a role="buut" class="btn btn-primary" asp-route-id="@contato.Id " asp-controller="Contato" asp-action="Edit">Editar</a>
+                                <a role="button" class="btn btn-danger" asp-route-id="@contato.Id" asp-controller="Contato" asp-action="DeleteConfirm">Apagar</a>
 
-                    </div>
-                </td>
-            </tr>
-            <tr>
-                <th scope="row">2</th>
-                <td>Alex</td>
-                <td>jallexz@msn.com</td>
-                <td>(14)99885566</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="buut" class="btn btn-primary" asp-controller="Contato" asp-action="Edit">Editar</a>
-                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="DeleteConfirm">Apagar</a>
-
-                    </div>
-                </td>
-            </tr>
-
-
-            <tr>
-                <th scope="row">3</th>
-                <td>Pedro</td>
-                <td>pedrodbarros@gmail.com</td>
-                <td>(14)99885566</td>
-                <td>
-                    <div class="btn-group" role="group">
-                        <a role="buut" class="btn btn-primary" asp-controller="Contato" asp-action="Edit">Editar</a>
-                        <a role="button" class="btn btn-danger" asp-controller="Contato" asp-action="DeleteConfirm">Apagar</a>
-
-                    </div>
-                </td>
-            </tr>
-
-
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
         </tbody>
     </table>
 </div>

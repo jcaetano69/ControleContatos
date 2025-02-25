@@ -1,5 +1,7 @@
 ﻿using ControleContatos.Data;
 using ControleContatos.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace ControleContatos.Repository
 {
@@ -16,6 +18,11 @@ namespace ControleContatos.Repository
             _bancoContext.SaveChanges(); //confirmação
             return contato; //retorno
             //gravar no banco de dados
+        }
+
+        public List<ContatoModel> BuscarTodos()
+        {
+            return _bancoContext.Contatos.ToList();
         }
     }
 }
