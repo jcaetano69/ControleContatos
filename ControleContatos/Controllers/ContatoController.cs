@@ -29,10 +29,20 @@ namespace ControleContatos.Controllers
             return View(contato);
         }
 
-        public IActionResult DeleteConfirm()
+        public IActionResult DeleteConfirm(int id)
         {
-            return View();
+            ContatoModel contato = _contatoRepository.ListarPorId(id);
+            return View(contato);
         }
+
+        public IActionResult Apagar(int id)
+        {
+            _contatoRepository.Apagar(id);
+            return RedirectToAction("Index");
+            
+        }
+
+
 
         [HttpPost]
         public IActionResult Criar(ContatoModel contato)
