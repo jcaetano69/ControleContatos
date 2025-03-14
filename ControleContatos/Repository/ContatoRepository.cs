@@ -15,7 +15,7 @@ namespace ControleContatos.Repository
         }
         public ContatoModel Adicionar(ContatoModel contato)
         {
-            _bancoContext.Contatos.Add(contato); //inserindo no banco
+            _bancoContext.Contatos.Add(contato); //inserindo no banco       
             _bancoContext.SaveChanges(); //confirmação
             return contato; //retorno
             //gravar no banco de dados
@@ -27,8 +27,8 @@ namespace ControleContatos.Repository
         }
 
         public List<ContatoModel> BuscarTodos()
-        {
-            return _bancoContext.Contatos.ToList();
+            {
+            return _bancoContext?.Contatos?.ToList();
         }
 
         public ContatoModel Atualizar(ContatoModel contato) //atualizando os dados no banco de dados com as informações da model
