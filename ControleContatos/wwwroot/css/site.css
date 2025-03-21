@@ -77,8 +77,8 @@ body {
 
 .close-alert {
     position: absolute;
-    right: -10px;
-    top: -15px;
+    right: -10px !important;
+    top: -15px!important;
     border-radius: 15px;
     width: 30px;
     height: 31px;
