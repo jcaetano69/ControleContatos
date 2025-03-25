@@ -8,16 +8,16 @@ $(document).ready(function () {
 
 
    
-//    $('#table-contatos').DataTable({
-//        "paging": true,          // Habilita a paginação
-//        "pageLength": 3,        // Define o número de itens por página
-//        "lengthChange": true,    // Permite ao usuário alterar o número de       itens por página
-//        "searching": true,       // Habilita a funcionalidade de busca
-//        "ordering": true,       // Habilita a ordenação das colunas
-//        "info": true,           // Exibe informações sobre a paginação
-//        "autoWidth": false       // Desabilita o ajuste automático da largura das colunas
-//    });
-    //});
+    $('#table-contatos').DataTable({
+        "paging": true,          // Habilita a paginação
+        "pageLength": 3,        // Define o número de itens por página
+        "lengthChange": true,    // Permite ao usuário alterar o número de       itens por página
+        "searching": true,       // Habilita a funcionalidade de busca
+        "ordering": true,       // Habilita a ordenação das colunas
+        "info": true,           // Exibe informações sobre a paginação
+        "autoWidth": false       // Desabilita o ajuste automático da largura das colunas
+    });
+    });
 
 
     $('#table-contatos').DataTable({
