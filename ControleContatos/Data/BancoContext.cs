@@ -11,5 +11,6 @@ namespace ControleContatos.Data
         }
 
         public DbSet<ContatoModel> Contatos { get; set; }//informar a classe que representa a tabela do banco de dados
+        public DbSet<UsuarioModel> Usuarios { get; set; }
     }
 }
