@@ -30,6 +30,7 @@ namespace ControleContatos
             services.AddEntityFrameworkSqlServer()// aqui estou setando que vou usar o sql server
                 .AddDbContext<BancoContext>(o => o.UseSqlServer(Configuration.GetConnectionString("DataBase")));//e o contexto que vai mandar é esse aqui aonde vai conter todas as tabelas
             services.AddScoped<IContatoRepository, ContatoRepository>(); // toda vez que a interface que a interface for invocada a injeção de dependencia vai usar tudo que tem no ContatoRepository com todos os metodos.
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
