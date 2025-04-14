@@ -1,4 +1,5 @@
 ﻿using ControleContatos.Models;
+using ControleContatos.Repository;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -6,6 +7,17 @@ namespace ControleContatos.Controllers
 {
     public class LoginController : Controller
     {
+
+
+        private readonly IUsuarioRepository _usuarioRepository;
+
+        public LoginController (IUsuarioRepository usuarioRepository)
+        {
+            _usuarioRepository = usuarioRepository;
+        }
+
+
+
         public IActionResult Index()
         {
             return View();
@@ -18,8 +30,25 @@ namespace ControleContatos.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    return RedirectToAction("Index", "Home");
+
+                  UsuarioModel usuario =  _usuarioRepository.BuscarPorLogin(loginModel.Login);
+
+                    if(usuario != null)
+                    {
+                        if(usuario.SenhaValida(loginModel.Senha))
+                        {
+                            return RedirectToAction("Index", "Home");
+                        }
+
+                        TempData["MensagemErro"] = $"A senha do usuário é inválida. Por favor tente novamente.";
+                    }
+                    
+
+                    TempData["MensagemErro"] = $"Usuário e/ou senha inválido(s). Por favor tente novamente.";
                 }
+
+                
+
                 return View("Index");
             }
             catch (Exception erro)

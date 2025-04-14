@@ -6,6 +6,7 @@ namespace ControleContatos.Repository
 
     public interface IUsuarioRepository
     {
+        UsuarioModel BuscarPorLogin(string login);
         UsuarioModel ListarPorId(int id); //contrato da interface
         List<UsuarioModel> BuscarTodos();
 

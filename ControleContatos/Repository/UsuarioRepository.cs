@@ -3,6 +3,7 @@ using ControleContatos.Models;
 using System.Collections.Generic;
 using System;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleContatos.Repository
 {
@@ -23,7 +24,14 @@ namespace ControleContatos.Repository
                                 //gravar no banco de dados
             }
 
-            public UsuarioModel ListarPorId(int id)
+        public UsuarioModel BuscarPorLogin(string login)
+        {
+            return _bancoContext.Usuarios.FirstOrDefault(x => x.Login.ToUpper() == login.ToUpper());//TO UPPER PARA TRANSFORMAR EM MAIUSCULO
+        }
+
+
+
+        public UsuarioModel ListarPorId(int id)
             {
                 return _bancoContext.Usuarios.FirstOrDefault(x => x.Id == id);
             }
@@ -63,6 +71,8 @@ namespace ControleContatos.Repository
 
                 return true;
             }
-        }
+
+       
+    }
     }
 
